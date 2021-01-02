@@ -12,7 +12,7 @@
 > - css flex를 통한 반응형 설계
 >   <br/>
 >   <br/>
-
+`
 # 실시간 예제
 
 > [실시간 에제 보기](https://stackblitz.com/edit/vanillacalendar?file=index.js)
@@ -25,15 +25,15 @@
 
 npm 을 통한 패키지를 제공합니다.
 
-```
-    npm install vanilla-calendar
+```console
+$ npm install vanilla-calendar
 ```
 
 <br/>
 
-```
-    import VanillaCalendar from "vanilla-calendar";
+```javascript
+import VanillaCalendar from "vanilla-calendar";
 
-    const root = document.getElementById('root');
-    const calendar = new VanillaCalendar(root);
+const root = document.getElementById('root');
+const calendar = new VanillaCalendar(root);
 ```
