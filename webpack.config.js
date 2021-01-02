@@ -1,14 +1,17 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
+
+const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: isProd ? './src/index.js' : './src/dev.js',
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
@@ -19,12 +22,15 @@ module.exports = {
     port: 9009,
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       inject: 'body',
       template: 'public/index.html',
     }),
   ],
   output: {
+    library: 'VanillaCalendar',
+    libraryTarget: 'umd',
     path: path.resolve(__dirname, './dist'),
   },
 };
