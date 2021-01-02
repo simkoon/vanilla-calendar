@@ -4,8 +4,6 @@ export default class Day {
     this.date = date;
     this.element = document.createElement('div');
 
-    console.dir(date.getMonth());
-
     this.updateUI(reference);
     parent.append(this.element);
   }

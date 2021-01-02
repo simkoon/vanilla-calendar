@@ -121,7 +121,6 @@ export default class Calendar {
     element.append(this.container);
   }
   updateYearMonth() {
-    console.log(this.days);
     this.days.forEach((day, i) => {
       day.setDate(
         new Date(
@@ -136,9 +135,4 @@ export default class Calendar {
       day.updateUI(this.$today);
     });
   }
-  getYear() {
-    console.log('hi');
-    console.log(this.inputTextYear);
-  }
-  setYearMonth(year, month) {}
 }
