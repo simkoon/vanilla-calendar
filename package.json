@@ -1,10 +1,11 @@
 {
   "name": "vanilla-calendar",
-  "version": "1.0.9",
+  "version": "1.0.12",
   "description": "",
-  "main": "build/js/index.js",
+  "main": "build/index.js",
   "files": [
     "dist",
+    "build",
     "src"
   ],
   "scripts": {

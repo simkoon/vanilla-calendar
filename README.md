@@ -32,6 +32,7 @@ $ npm install vanilla-calendar
 
 ```javascript
 import VanillaCalendar from 'vanilla-calendar';
+import "vanilla-calendar/dist/vanilla-calendar.min.css";
 
 const root = document.getElementById('root');
 const calendar = new VanillaCalendar(root);
