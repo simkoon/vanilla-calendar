@@ -1,6 +1,6 @@
 {
   "name": "vanilla-calendar",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "dist/index.js",
   "files": [
@@ -10,7 +10,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve",
     "start:dist": "http-server ./dist",
-    "build": "cross-env NODE_ENV=production webpack",
+    "build": "rimraf build && rimraf dist && npm run build:ts && cross-env NODE_ENV=production webpack",
     "build:ts": "tsc"
   },
   "keywords": [],
@@ -22,6 +22,7 @@
     "html-webpack-plugin": "^4.5.0",
     "http-server": "^0.12.3",
     "mini-css-extract-plugin": "^1.3.3",
+    "rimraf": "^3.0.2",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.13",
     "typescript": "^4.1.3",

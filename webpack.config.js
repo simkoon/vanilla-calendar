@@ -6,7 +6,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   mode: 'development',
-  entry: isProd ? './src/index.ts' : './src/dev.ts',
+  entry: isProd ? './src/webpack.ts' : './src/dev.ts',
   module: {
     rules: [
       {
@@ -27,7 +27,9 @@ module.exports = {
     port: 9009,
   },
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'vanilla-calendar.min.css'
+    }),
     new HtmlWebpackPlugin({
       inject: 'body',
       template: 'public/index.html',
@@ -35,6 +37,7 @@ module.exports = {
   ],
   output: {
     library: 'VanillaCalendar',
+    filename: 'vanilla-calendar.min.js',
     libraryTarget: 'umd',
     path: path.resolve(__dirname, './dist'),
   },
