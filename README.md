@@ -11,11 +11,10 @@
 > - 버튼을 통한 월 조작 및 오늘 날짜 바로가기
 > - css flex를 통한 반응형 설계
 >   <br/>
->   <br/>
-`
+
 # 실시간 예제
 
-> [실시간 에제 보기](https://stackblitz.com/edit/vanillacalendar?file=index.js)
+> [실시간 예제 보기](https://stackblitz.com/edit/vanillacalendar?file=index.js)
 
 <br/>
 
@@ -32,7 +31,7 @@ $ npm install vanilla-calendar
 <br/>
 
 ```javascript
-import VanillaCalendar from "vanilla-calendar";
+import VanillaCalendar from 'vanilla-calendar';
 
 const root = document.getElementById('root');
 const calendar = new VanillaCalendar(root);
