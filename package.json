@@ -1,8 +1,8 @@
 {
   "name": "vanilla-calendar",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "",
-  "main": "dist/index.js",
+  "main": "build/js/index.js",
   "files": [
     "dist",
     "src"
