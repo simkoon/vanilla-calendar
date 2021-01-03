@@ -6,17 +6,22 @@ const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   mode: 'development',
-  entry: isProd ? './src/index.js' : './src/dev.js',
+  entry: isProd ? './src/index.ts' : './src/dev.ts',
   module: {
     rules: [
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
     ],
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: [ '.tsx', '.ts', '.js' ],
   },
   devServer: {
     port: 9009,

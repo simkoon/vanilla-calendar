@@ -1,5 +1,6 @@
 export default class Week {
-  constructor(parent) {
+  element: HTMLDivElement;
+  constructor(parent: HTMLElement) {
     this.element = document.createElement('div');
     this.element.className = 'week';
     parent.append(this.element);

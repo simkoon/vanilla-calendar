@@ -4,4 +4,7 @@ const root = document.getElementById('root');
 
 // new Calendar(root);
 
-const calendar = new Calendar(root);
+if (root) {
+  const calendar = new Calendar(root);
+}
+

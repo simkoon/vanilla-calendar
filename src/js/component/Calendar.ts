@@ -15,14 +15,31 @@ const DAY = {
 };
 
 export default class Calendar {
-  constructor(element) {
+  // 날짜 계산을 위한 변수들 몫, 나머지,
+  private mok: number;
+  private namugi: number;
+
+  calendarMenu: HTMLDivElement;
+  prevBtn: HTMLButtonElement;
+  todayBtn: HTMLButtonElement;
+  nowDayText: HTMLSpanElement;
+  nextBtn: HTMLButtonElement;
+
+  container: HTMLDivElement;
+  month: HTMLDivElement;
+  $today: Date;
+
+  weeks: Array<Week>;
+  days: Array<Day>;
+
+  constructor(element: HTMLElement) {
     // 캘린더 날짜 설정 메뉴
     this.calendarMenu = document.createElement('div');
     this.calendarMenu.className = 'calendar-menu';
-    this.prevBtn = document.createElement('Button');
+    this.prevBtn = document.createElement('button');
     this.todayBtn = document.createElement('button');
     this.nowDayText = document.createElement('span');
-    this.nextBtn = document.createElement('Button');
+    this.nextBtn = document.createElement('button');
 
     this.todayBtn.innerHTML = 'today';
     this.todayBtn.className = 'today-btn';
@@ -61,7 +78,7 @@ export default class Calendar {
     }`;
 
     this.prevBtn.addEventListener('click', () => {
-      this.$today.setDate = 1;
+      this.$today.setDate(1);
       this.$today.setMonth(this.$today.getMonth() - 1);
       this.updateYearMonth();
       this.nowDayText.innerHTML = `${
@@ -69,7 +86,7 @@ export default class Calendar {
       }`;
     });
     this.nextBtn.addEventListener('click', () => {
-      this.$today.setDate = 1;
+      this.$today.setDate(1);
       this.$today.setMonth(this.$today.getMonth() + 1);
       this.updateYearMonth();
       this.nowDayText.innerHTML = `${
@@ -77,7 +94,7 @@ export default class Calendar {
       }`;
     });
     this.todayBtn.addEventListener('click', () => {
-      this.$today.setDate = 1;
+      this.$today.setDate(1);
       this.$today.setFullYear(TODAY.getFullYear());
       this.$today.setMonth(TODAY.getMonth());
       this.updateYearMonth();

@@ -1,5 +1,14 @@
 export default class Day {
-  constructor(parent, reference, date, today) {
+  private today: Date;
+  private date: Date;
+  private element: HTMLDivElement;
+
+  constructor(
+    parent: HTMLDivElement,
+    reference: Date,
+    date: Date,
+    today: Date
+  ) {
     this.today = today;
     this.date = date;
     this.element = document.createElement('div');
@@ -8,11 +17,11 @@ export default class Day {
     parent.append(this.element);
   }
 
-  setDate(date) {
+  setDate(date: Date) {
     this.date = date;
   }
 
-  updateUI(reference) {
+  updateUI(reference: Date) {
     this.element.className = 'day';
     if (this.date.getDay() === 0) {
       this.element.className = 'sunday day';
@@ -35,7 +44,7 @@ export default class Day {
           <span class="today-text">today</span>
         </div>`;
     } else {
-      this.element.innerHTML = this.date.getDate();
+      this.element.innerHTML = `${this.date.getDate()}`;
     }
   }
 }
