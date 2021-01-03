@@ -2,7 +2,7 @@
 
 ![vanillacalendar1](https://user-images.githubusercontent.com/67991851/103455330-75cb6e00-4d2f-11eb-9137-c247224f5fe8.PNG)
 
-> vanilla-calendar는 순수 javascript DOM API만을 사용해서 만든 달력입니다.
+> vanilla-calendar는 순수 Javascript DOM API 와 Typescript 를 사용해서 만든 달력입니다.
 > <br/>
 >
 > ### 주요 특성
@@ -32,7 +32,7 @@ $ npm install vanilla-calendar
 
 ```javascript
 import VanillaCalendar from 'vanilla-calendar';
-import "vanilla-calendar/dist/vanilla-calendar.min.css";
+import 'vanilla-calendar/dist/vanilla-calendar.min.css';
 
 const root = document.getElementById('root');
 const calendar = new VanillaCalendar(root);
