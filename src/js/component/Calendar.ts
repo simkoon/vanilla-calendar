@@ -1,5 +1,6 @@
 import Day from './Day';
 import Week from './Week';
+import DaySelector from './DaySelector';
 
 const DAY_MILISECOND = 86400000;
 const TODAY = new Date();
@@ -33,6 +34,7 @@ export default class Calendar {
   days: Array<Day>;
 
   constructor(element: HTMLElement) {
+    const daySelector = new DaySelector();
     // 캘린더 날짜 설정 메뉴
     this.calendarMenu = document.createElement('div');
     this.calendarMenu.className = 'calendar-menu';
@@ -82,7 +84,11 @@ export default class Calendar {
       this.$today.setMonth(this.$today.getMonth() - 1);
       this.updateYearMonth();
       this.nowDayText.innerHTML = `${
-        this.$today.getFullYear() + '.' + (this.$today.getMonth() + 1)
+        this.$today.getFullYear() +
+        '.' +
+        (this.$today.getMonth() + 1 < 10
+          ? '0' + (this.$today.getMonth() + 1)
+          : this.$today.getMonth() + 1)
       }`;
     });
     this.nextBtn.addEventListener('click', () => {
@@ -90,7 +96,11 @@ export default class Calendar {
       this.$today.setMonth(this.$today.getMonth() + 1);
       this.updateYearMonth();
       this.nowDayText.innerHTML = `${
-        this.$today.getFullYear() + '.' + (this.$today.getMonth() + 1)
+        this.$today.getFullYear() +
+        '.' +
+        (this.$today.getMonth() + 1 < 10
+          ? '0' + (this.$today.getMonth() + 1)
+          : this.$today.getMonth() + 1)
       }`;
     });
     this.todayBtn.addEventListener('click', () => {
@@ -99,7 +109,11 @@ export default class Calendar {
       this.$today.setMonth(TODAY.getMonth());
       this.updateYearMonth();
       this.nowDayText.innerHTML = `${
-        this.$today.getFullYear() + '.' + (this.$today.getMonth() + 1)
+        this.$today.getFullYear() +
+        '.' +
+        (this.$today.getMonth() + 1 < 10
+          ? '0' + (this.$today.getMonth() + 1)
+          : this.$today.getMonth() + 1)
       }`;
     });
 
@@ -129,15 +143,18 @@ export default class Calendar {
                   : this.mok * 7 + day)) *
                 DAY_MILISECOND
           ),
-          TODAY
+          TODAY,
+          daySelector
         )
       );
     }
     this.container.append(this.month);
 
     element.append(this.container);
+    this.onWindowClicked(daySelector);
   }
-  updateYearMonth() {
+
+  updateYearMonth(): void {
     this.days.forEach((day, i) => {
       day.setDate(
         new Date(
@@ -151,5 +168,14 @@ export default class Calendar {
       );
       day.updateUI(this.$today);
     });
+  }
+  onWindowClicked(daySelector: DaySelector): void {
+    window.addEventListener(
+      'click',
+      (e) => {
+        daySelector.setDisplayNone();
+      },
+      true
+    );
   }
 }

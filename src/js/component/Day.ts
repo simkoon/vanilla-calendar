@@ -1,24 +1,36 @@
+import DaySelector from './DaySelector';
+
 export default class Day {
   private today: Date;
   private date: Date;
   private element: HTMLDivElement;
+  private parent: HTMLDivElement;
+  private daySelector: DaySelector;
 
   constructor(
     parent: HTMLDivElement,
     reference: Date,
     date: Date,
-    today: Date
+    today: Date,
+    daySelector: DaySelector
   ) {
+    this.daySelector = daySelector;
     this.today = today;
     this.date = date;
     this.element = document.createElement('div');
+    this.parent = parent;
 
     this.updateUI(reference);
-    parent.append(this.element);
+    this.parent.append(this.element);
+
+    this.setClickEvent();
   }
 
   setDate(date: Date) {
     this.date = date;
+  }
+  getDate(): Date {
+    return this.date;
   }
 
   updateUI(reference: Date) {
@@ -46,5 +58,18 @@ export default class Day {
     } else {
       this.element.innerHTML = `${this.date.getDate()}`;
     }
+  }
+  onClick = (e: MouseEvent): void => {
+    console.log('hihi');
+    this.daySelector
+      .setDate(this.date)
+      .appendTo(this.parent)
+      .setPositionLeft(`${(100 / 7) * this.date.getDay()}%`)
+      .setWidth(`${this.element.scrollWidth}px`)
+      .setDisplayBlock();
+  };
+
+  setClickEvent(): void {
+    this.element.addEventListener('click', this.onClick);
   }
 }
