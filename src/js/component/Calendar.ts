@@ -1,6 +1,6 @@
-import Day from './Day';
-import Week from './Week';
-import DaySelector from './DaySelector';
+import Day from './grid/Day';
+import Week from './grid/Week';
+import DaySelector from './grid/DaySelector';
 
 const DAY_MILISECOND = 86400000;
 const TODAY = new Date();
@@ -43,7 +43,7 @@ export default class Calendar {
     this.nowDayText = document.createElement('span');
     this.nextBtn = document.createElement('button');
 
-    this.todayBtn.innerHTML = 'today';
+    this.todayBtn.innerHTML = 'Today';
     this.todayBtn.className = 'today-btn';
     this.prevBtn.innerHTML = ' < ';
     this.nextBtn.innerHTML = ' > ';
