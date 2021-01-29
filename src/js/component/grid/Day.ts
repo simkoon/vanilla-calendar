@@ -28,6 +28,7 @@ export default class Day {
 
   setDate(date: Date) {
     this.date = date;
+    console.log(this.date);
   }
   getDate(): Date {
     return this.date;

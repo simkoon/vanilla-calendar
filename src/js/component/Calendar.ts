@@ -82,6 +82,9 @@ export default class Calendar {
     this.prevBtn.addEventListener('click', () => {
       this.$today.setDate(1);
       this.$today.setMonth(this.$today.getMonth() - 1);
+      this.mok = Math.floor(this.$today.getDate() / 7);
+      this.namugi = (this.$today.getDay() % 7) - 1;
+      console.log(this.$today);
       this.updateYearMonth();
       this.nowDayText.innerHTML = `${
         this.$today.getFullYear() +
@@ -94,7 +97,10 @@ export default class Calendar {
     this.nextBtn.addEventListener('click', () => {
       this.$today.setDate(1);
       this.$today.setMonth(this.$today.getMonth() + 1);
+      this.mok = Math.floor(this.$today.getDate() / 7);
+      this.namugi = (this.$today.getDay() % 7) - 1;
       this.updateYearMonth();
+      console.log(this.$today);
       this.nowDayText.innerHTML = `${
         this.$today.getFullYear() +
         '.' +
@@ -104,9 +110,10 @@ export default class Calendar {
       }`;
     });
     this.todayBtn.addEventListener('click', () => {
-      this.$today.setDate(1);
-      this.$today.setFullYear(TODAY.getFullYear());
-      this.$today.setMonth(TODAY.getMonth());
+      this.$today = new Date();
+      // this.$today.setFullYear(TODAY.getFullYear());
+      // this.$today.setMonth(TODAY.getMonth());
+
       this.updateYearMonth();
       this.nowDayText.innerHTML = `${
         this.$today.getFullYear() +
@@ -138,9 +145,9 @@ export default class Calendar {
           new Date(
             this.$today.getTime() +
               (i -
-                (this.namugi > day
-                  ? (this.mok + 1) * 7 + day
-                  : this.mok * 7 + day)) *
+                (this.namugi > this.$today.getDay()
+                  ? (this.mok + 1) * 7 + this.$today.getDay()
+                  : this.mok * 7 + this.$today.getDay())) *
                 DAY_MILISECOND
           ),
           TODAY,
@@ -152,6 +159,7 @@ export default class Calendar {
 
     element.append(this.container);
     this.onWindowClicked(daySelector);
+    console.log(this.$today);
   }
 
   updateYearMonth(): void {
