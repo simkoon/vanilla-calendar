@@ -84,8 +84,10 @@
 }
 /* 날 선택자 */
 .day-selector {
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   height: 100%;
   border: 1px solid #515ce6;
+  flex-wrap: wrap;
 }

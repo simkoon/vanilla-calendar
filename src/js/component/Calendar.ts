@@ -84,7 +84,6 @@ export default class Calendar {
       this.$today.setMonth(this.$today.getMonth() - 1);
       this.mok = Math.floor(this.$today.getDate() / 7);
       this.namugi = (this.$today.getDay() % 7) - 1;
-      console.log(this.$today);
       this.updateYearMonth();
       this.nowDayText.innerHTML = `${
         this.$today.getFullYear() +
@@ -100,7 +99,6 @@ export default class Calendar {
       this.mok = Math.floor(this.$today.getDate() / 7);
       this.namugi = (this.$today.getDay() % 7) - 1;
       this.updateYearMonth();
-      console.log(this.$today);
       this.nowDayText.innerHTML = `${
         this.$today.getFullYear() +
         '.' +
@@ -159,7 +157,6 @@ export default class Calendar {
 
     element.append(this.container);
     this.onWindowClicked(daySelector);
-    console.log(this.$today);
   }
 
   updateYearMonth(): void {

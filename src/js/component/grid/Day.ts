@@ -28,7 +28,6 @@ export default class Day {
 
   setDate(date: Date) {
     this.date = date;
-    console.log(this.date);
   }
   getDate(): Date {
     return this.date;
@@ -61,12 +60,11 @@ export default class Day {
     }
   }
   onClick = (e: MouseEvent): void => {
-    console.log('hihi');
     this.daySelector
       .setDate(this.date)
       .appendTo(this.parent)
       .setPositionLeft(`${(100 / 7) * this.date.getDay()}%`)
-      .setWidth(`${this.element.scrollWidth}px`)
+      .setWidth(`${100 / 7}%`)
       .setDisplayBlock();
   };
 
