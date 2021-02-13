@@ -90,4 +90,5 @@
   height: 100%;
   border: 1px solid #515ce6;
   flex-wrap: wrap;
+  background-color: rgba(78, 78, 216, 0.1);
 }

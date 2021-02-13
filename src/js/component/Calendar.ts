@@ -109,9 +109,8 @@ export default class Calendar {
     });
     this.todayBtn.addEventListener('click', () => {
       this.$today = new Date();
-      // this.$today.setFullYear(TODAY.getFullYear());
-      // this.$today.setMonth(TODAY.getMonth());
-
+      this.mok = Math.floor(this.$today.getDate() / 7);
+      this.namugi = (this.$today.getDay() % 7) - 1;
       this.updateYearMonth();
       this.nowDayText.innerHTML = `${
         this.$today.getFullYear() +
