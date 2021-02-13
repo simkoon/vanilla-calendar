@@ -60,6 +60,7 @@
 .day-today-container {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 .day-not-this-month {
@@ -77,6 +78,7 @@
   text-align: center;
   padding: 3px;
   padding-left: 6px;
+
   padding-right: 6px;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
@@ -89,6 +91,5 @@
   top: 0;
   height: 100%;
   border: 1px solid #515ce6;
-  flex-wrap: wrap;
   background-color: rgba(78, 78, 216, 0.1);
 }

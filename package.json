@@ -1,6 +1,6 @@
 {
   "name": "vanilla-calendar",
-  "version": "1.0.21",
+  "version": "1.0.25",
   "description": "",
   "main": "build/index.js",
   "files": [

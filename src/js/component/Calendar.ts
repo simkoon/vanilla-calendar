@@ -76,7 +76,11 @@ export default class Calendar {
     this.$today = new Date();
 
     this.nowDayText.innerHTML = `${
-      this.$today.getFullYear() + '.' + this.$today.getMonth() + 1
+      this.$today.getFullYear() +
+      '.' +
+      (this.$today.getMonth() + 1 < 10
+        ? '0' + (this.$today.getMonth() + 1)
+        : this.$today.getMonth() + 1)
     }`;
 
     this.prevBtn.addEventListener('click', () => {
